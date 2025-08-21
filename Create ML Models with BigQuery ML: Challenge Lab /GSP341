@@ -2,7 +2,7 @@
 
 
 
-
+```
 CREATE OR REPLACE MODEL `ecommerce.customer_classification_model`
     OPTIONS
     (
@@ -34,7 +34,7 @@ CREATE OR REPLACE MODEL `ecommerce.customer_classification_model`
         `data-to-insights.ecommerce.web_analytics`
     GROUP BY fullvisitorid)
     USING (fullVisitorId);
-
+```
 
 
 
@@ -42,7 +42,7 @@ CREATE OR REPLACE MODEL `ecommerce.customer_classification_model`
 
 
 
-
+```
 SELECT
   roc_auc,
   CASE
@@ -78,7 +78,7 @@ FROM
   USING (fullVisitorId)
 
 ));
-
+```
 
 
 
@@ -86,7 +86,7 @@ FROM
 
 
 
-
+```
 CREATE OR REPLACE MODEL `ecommerce.improved_customer_classification_model`
 OPTIONS
   (model_type='logistic_reg', input_label_cols = ['will_buy_on_return_visit']) AS
@@ -148,10 +148,10 @@ SELECT * EXCEPT(unique_session_id) FROM (
   device.deviceCategory,
   country
 );
+```
 
 
-
-
+```
 #standardSQL
 SELECT
   roc_auc,
@@ -222,7 +222,7 @@ SELECT * EXCEPT(unique_session_id) FROM (
   country
 )
 ));
-
+```
 
 
 
@@ -230,7 +230,7 @@ SELECT * EXCEPT(unique_session_id) FROM (
 
 
 
-
+```
   CREATE OR REPLACE MODEL `ecommerce.finalized_classification_model`
   OPTIONS
     (model_type="logistic_reg", labels = ["will_buy_on_return_visit"]) AS
@@ -292,10 +292,10 @@ SELECT * EXCEPT(unique_session_id) FROM (
     device.deviceCategory,
     country
   );
+```
 
 
-
-
+```
 SELECT
 *
 FROM
@@ -360,4 +360,4 @@ SELECT
 
 ORDER BY
   predicted_will_buy_on_return_visit DESC;
-
+```
