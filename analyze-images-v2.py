@@ -14,7 +14,7 @@ else:
 
 if len(sys.argv) < 3:
     print('You must provide parameters for the Google Cloud project ID and Storage bucket')
-    print('python3 ' + sys.argv[0] + ' [PROJECT_NAME] [BUCKET_NAME]')
+    print('python3 ' + sys.argv[0] + ' qwiklabs-gcp-02-8c86abad7148 gs://qwiklabs-gcp-02-8c86abad7148/')
     exit()
 
 project_name = sys.argv[1]
